@@ -1,10 +1,84 @@
-nav ul {
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  box-sizing: border-box;
+  background-color: #fff;
+  font-size: 22px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
   margin: 0;
-  padding: 6px;
-  list-style: none; }
-nav li {
-  display: inline-block; }
-nav a {
-  display: block;
-  padding: 6px 12px;
-  text-decoration: none; }
+  padding: 0;
+  color: #494e52;
+  font-family: "San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+  line-height: 1.5;
+}
+
+b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, tr, td, form button, input[type="submit"], .btn, #goog-wm-sb, .highlight, .archive__item-teaser {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+p, pre, blockquote, ul, ol, dl, figure, table, fieldset {
+  orphans: 3;
+  widows: 3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 2em 0 0.5em;
+  line-height: 1.2;
+  font-family: "San Francisco","Roboto","Segoe UI","Helvetica Neue","Lucida Grande",Arial,sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.563em;
+}
+
+h2 {
+  font-size: 1.25em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  margin-bottom: 1.3em;
+}
+
+a {
+  color: #52adc8;
+}
+
+a:hover, a:active {
+  outline: 0;
+}
+
+.page__content p, .page__content li, .page__content dl {
+  font-size: 1em;
+}
+
+.page__content p {
+  margin: 0 0 1.3em;
+}
+
+.page__content a:hover {
+  text-decoration: underline;
+}
+
+.page__content a {
+  text-decoration: none;
+}
+
+.page__content h2 {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #f2f3f3;
+}
