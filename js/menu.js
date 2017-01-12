@@ -2,7 +2,7 @@ $(document).ready(main);
 var contador = 1;
 var ancho = $(document).width();
 function main (){
-	$('.menu_bar').click(function(){
+	$('.menu-bar').click(function(){
 		// $('nav').toggle(); Forma Sencilla de aparecer y desaparecer
 		
 		if (contador == 1){

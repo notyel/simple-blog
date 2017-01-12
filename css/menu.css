@@ -1,24 +1,29 @@
-.menu_bar {
+.menu-bar {
 	display:none;
+	z-index:1000;
+}
+
+.menu {
+	background:#023859;
+	z-index:1000;
 }
 
 header {
 	width: 100%;
     margin:0;
-    
 }
 
-header nav {
-	background:#023859;
+.menu.header nav {
 	z-index:1000;
 	max-width: 100%;
 	width: 100%;
 	margin:0;
-    
+	background:#023859;
 }
 
 header nav ul {
 	list-style:none;
+	margin-bottom: 0;
 }
 
 header nav ul li {
@@ -77,7 +82,7 @@ header nav ul li span {
 
 header nav ul li .caret {
 	position: relative;
-	top: 3px;
+	top: 1px;
 	margin-left: 10px;
 	margin-right: 0;
 }
@@ -86,7 +91,7 @@ header nav ul li .caret {
     body {
         padding-top:80px;
     }
-	.menu_bar {
+	.menu-bar {
 		width: 100%;
 		background:#E6344A;
 		display: block;
@@ -94,7 +99,7 @@ header nav ul li .caret {
 		top:0;
 	}
 
-	.menu_bar .bt-menu {
+	.menu-bar .bt-menu {
 		display: block;
 		padding: 20px;
 		color:#fff;
@@ -104,7 +109,7 @@ header nav ul li .caret {
 		text-decoration: none;
 	}
 
-	.menu_bar span {
+	.menu-bar span {
 		float: right;
 		font-size: 40px;
 	}
