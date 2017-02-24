@@ -13,7 +13,7 @@ header {
     margin:0;
 }
 
-.menu.header nav {
+header nav {
 	z-index:1000;
 	max-width: 100%;
 	width: 100%;
@@ -118,7 +118,6 @@ header nav ul li .caret {
 		width: 80%;
 		height: calc(100% - 80px);
 		right:100%; 
-		/*Con esto ocultamos el menu hacia la derecha, lo agregamos hasta el final*/
 		margin: 0;
 		position:fixed;
 		overflow:scroll;
