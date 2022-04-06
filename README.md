@@ -6,7 +6,7 @@ Plantilla **Html5** y **CSS3** con diseños adaptable a móvil (web responsive).
 
 **Leyton Manuel Espitia Diaz**
 
-* <https://twitter.com/Notyel1987>
+* <https://twitter.com/Leyton_Network>
 * <https://github.com/notyel>
 
 ## Copyright and license
