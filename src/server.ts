@@ -7,7 +7,7 @@ import bootstrap from './main.server';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import matter from 'gray-matter';
-import { TransferState, makeStateKey } from '@angular/platform-browser';
+import { TransferState, makeStateKey } from '@angular/core';
 
 // Define Post interface
 interface Post {
@@ -25,8 +25,8 @@ function fetchAllPostsData(): Post[] {
   try {
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames
-      .filter(fileName => fileName.endsWith('.md'))
-      .map(fileName => {
+      .filter((fileName) => fileName.endsWith('.md'))
+      .map((fileName) => {
         const slug = fileName.replace(/\.md$/, '');
         const fullPath = path.join(postsDirectory, fileName);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -88,8 +88,8 @@ app.get(
   '**',
   express.static(browserDistFolder, {
     maxAge: '1y',
-    index: 'index.html'
-  }),
+    index: 'index.html',
+  })
 );
 
 /**
@@ -109,8 +109,16 @@ app.get('**', async (req, res, next) => {
   // This is a simplified check; real-world scenarios might need more specific routing.
   // For example, check if the URL starts with a specific path like '/blog/'
   let singlePost: Post | null = null;
-  if (potentialSlug && !potentialSlug.includes('.') && parts.length > 1 && originalUrl.startsWith('/blog/')) { // Basic check: not a file and has some path segments
-    console.log(`Attempting to fetch post with potential slug: ${potentialSlug}`);
+  if (
+    potentialSlug &&
+    !potentialSlug.includes('.') &&
+    parts.length > 1 &&
+    originalUrl.startsWith('/blog/')
+  ) {
+    // Basic check: not a file and has some path segments
+    console.log(
+      `Attempting to fetch post with potential slug: ${potentialSlug}`
+    );
     singlePost = fetchPostBySlugData(potentialSlug);
     if (singlePost) {
       transferState.set(POST_KEY, singlePost);
@@ -121,7 +129,8 @@ app.get('**', async (req, res, next) => {
   }
 
   // Fetch all posts metadata if not a single post request or for general listing
-  if (!singlePost) { // Avoid fetching all posts if a single post was already successfully fetched
+  if (!singlePost) {
+    // Avoid fetching all posts if a single post was already successfully fetched
     const allPosts = fetchAllPostsData();
     if (allPosts.length > 0) {
       transferState.set(POSTS_KEY, allPosts);
@@ -130,19 +139,18 @@ app.get('**', async (req, res, next) => {
       console.log('No posts found or error fetching posts.');
     }
   }
-  
+
   try {
-    const html = await commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: browserDistFolder,
-        providers: [
-          { provide: APP_BASE_HREF, useValue: baseUrl },
-          { provide: TransferState, useValue: transferState }
-        ],
-      });
+    const html = await commonEngine.render({
+      bootstrap,
+      documentFilePath: indexHtml,
+      url: `${protocol}://${headers.host}${originalUrl}`,
+      publicPath: browserDistFolder,
+      providers: [
+        { provide: APP_BASE_HREF, useValue: baseUrl },
+        { provide: TransferState, useValue: transferState },
+      ],
+    });
     res.send(html);
   } catch (err) {
     next(err);
