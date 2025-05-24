@@ -1,7 +1,0 @@
-@import 'highlight.js/styles/default.css'; /* Or any other theme like atom-one-dark.css */
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* You can add global styles to this file, and also import other style files */
