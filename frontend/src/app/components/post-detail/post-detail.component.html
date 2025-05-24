@@ -1,0 +1,37 @@
+<div class="container mx-auto p-4">
+  <div *ngIf="post$ | async as post; else loadingOrNotFound">
+    <article class="prose lg:prose-xl max-w-none">
+      <header class="mb-8">
+        <h1 class="text-4xl font-bold mb-2">{{ post.title || 'Untitled Post' }}</h1>
+        <p *ngIf="post.date" class="text-gray-600 text-lg">Published on: {{ post.date | date:'longDate' }}</p>,
+        <p *ngIf="post.author" class="text-gray-500 text-lg">By: {{ post.author }}</p>
+      </header>
+      
+      <!-- 
+        Assuming post.content is HTML generated from Markdown.
+        If the HTML is trusted (e.g., sanitized during generation or from a trusted source),
+        binding to [innerHTML] is acceptable. Otherwise, further sanitization might be needed.
+        The backend currently doesn't do any sanitization on the markdown content itself.
+      -->
+      <div [innerHTML]="post.content"></div>
+
+      <footer class="mt-8 pt-4 border-t">
+        <a routerLink="/blog" class="text-blue-500 hover:underline">&larr; Back to Blog List</a>
+      </footer>
+    </article>
+  </div>
+
+  <ng-template #loadingOrNotFound>
+    <!-- Check if post is explicitly undefined after async pipe resolves -->
+    <ng-container *ngIf="(post$ | async) === undefined; else loading">
+      <div class="text-center py-10">
+        <h2 class="text-2xl font-semibold mb-4">Post Not Found</h2>
+        <p class="text-gray-600">Sorry, we couldn't find the post you're looking for.</p>
+        <a routerLink="/blog" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Go to Blog List</a>
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <p class="text-center text-gray-500">Loading post details...</p>
+    </ng-template>
+  </ng-template>
+</div>
