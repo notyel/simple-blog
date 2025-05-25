@@ -1,0 +1,34 @@
+{
+  "name": "simple-blog",
+  "version": "1.0.0",
+  "description": "Blog moderno para desarrolladores con Angular 19 SSR y Node.js",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start:backend": "npm run start --workspace=backend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "start:frontend": "npm run start --workspace=frontend",
+    "dev:frontend": "npm run dev:ssr --workspace=frontend",
+    "build:frontend": "npm run build:ssr --workspace=frontend",
+    "prerender": "npm run prerender --workspace=frontend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build": "npm run build:frontend",
+    "test:frontend": "npm run test --workspace=frontend"
+  },
+  "keywords": [
+    "blog",
+    "angular",
+    "ssr",
+    "express",
+    "node",
+    "markdown"
+  ],
+  "author": "Leyton Network",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
