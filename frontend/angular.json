@@ -45,6 +45,7 @@
               "includePaths": ["src/styles"]
             },
             "server": "src/main.server.ts",
+            "outputMode": "server",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"

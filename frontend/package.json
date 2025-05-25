@@ -1,6 +1,7 @@
 {
   "name": "simple-blog-frontend",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dev:ssr": "ng run simple-blog-frontend:serve-ssr",
-    "serve:ssr": "node dist/simple-blog-frontend/server/main.js",
+    "serve:ssr": "node dist/simple-blog-frontend/server/main.mjs",
     "build:ssr": "ng build && ng run simple-blog-frontend:server",
     "prerender": "ng run simple-blog-frontend:prerender"
   },
