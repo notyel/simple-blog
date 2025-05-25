@@ -1,0 +1,75 @@
+{
+  "name": "marked-highlight",
+  "version": "2.2.1",
+  "description": "marked highlight",
+  "main": "./lib/index.cjs",
+  "module": "./src/index.js",
+  "browser": "./lib/index.umd.js",
+  "types": "./src/index.d.ts",
+  "type": "module",
+  "keywords": [
+    "marked",
+    "extension",
+    "highlight"
+  ],
+  "files": [
+    "lib/",
+    "src/"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js",
+      "require": "./lib/index.cjs"
+    }
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "test:cover": "jest --coverage",
+    "test:types": "tsd -t src/index.d.ts -f types_test/index.test-d.ts",
+    "lint": "eslint",
+    "build": "rollup -c rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markedjs/marked-highlight.git"
+  },
+  "author": "Tony Brix <Tony@Brix.ninja> (https://Tony.Brix.ninja)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/markedjs/marked-highlight/issues"
+  },
+  "homepage": "https://github.com/markedjs/marked-highlight#readme",
+  "peerDependencies": {
+    "marked": ">=4 <16"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@markedjs/eslint-config": "^1.0.7",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^11.0.0",
+    "@semantic-release/npm": "^12.0.1",
+    "@semantic-release/release-notes-generator": "^14.0.1",
+    "babel-jest": "^29.7.0",
+    "eslint": "^9.14.0",
+    "globals": "^15.12.0",
+    "highlight.js": "^11.10.0",
+    "jest-cli": "^29.7.0",
+    "marked": "^15.0.0",
+    "rollup": "^4.24.4",
+    "semantic-release": "^24.2.0",
+    "tsd": "^0.31.2"
+  },
+  "tsd": {
+    "compilerOptions": {
+      "paths": {
+        "marked-highlight": [
+          "./src"
+        ]
+      }
+    }
+  }
+}

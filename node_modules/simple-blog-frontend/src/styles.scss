@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    @apply antialiased min-h-screen;
+  }
+
+  /* Estilos para el contenido de los posts */
+  .post-content {
+    @apply prose prose-lg dark:prose-invert max-w-none;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-bold mb-4 mt-8;
+    }
+
+    h1 {
+      @apply text-3xl;
+    }
+
+    h2 {
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
+    }
+
+    p {
+      @apply mb-4;
+    }
+
+    a {
+      @apply text-primary-600 dark:text-primary-400 hover:underline;
+    }
+
+    ul,
+    ol {
+      @apply mb-4 ml-6;
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    blockquote {
+      @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic my-4;
+    }
+
+    pre {
+      @apply rounded-lg p-4 mb-4 overflow-x-auto;
+    }
+
+    code {
+      @apply font-mono text-sm rounded px-1 py-0.5 bg-gray-100 dark:bg-gray-800;
+    }
+
+    pre code {
+      @apply bg-transparent p-0 text-sm leading-relaxed;
+    }
+
+    img {
+      @apply max-w-full rounded-lg my-4;
+    }
+
+    hr {
+      @apply my-8 border-gray-200 dark:border-gray-800;
+    }
+
+    table {
+      @apply w-full border-collapse mb-4;
+    }
+
+    th,
+    td {
+      @apply border border-gray-300 dark:border-gray-700 px-4 py-2;
+    }
+
+    th {
+      @apply bg-gray-100 dark:bg-gray-800;
+    }
+  }
+
+  /* Estilos para las tarjetas de posts */
+  .post-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-gray-200 dark:border-gray-700;
+  }
+
+  /* Estilos para el modo oscuro/claro */
+  .dark {
+    --tw-prose-body: theme("colors.gray.300");
+    --tw-prose-headings: theme("colors.white");
+    --tw-prose-links: theme("colors.primary.400");
+    --tw-prose-code: theme("colors.gray.300");
+    --tw-prose-code-bg: theme("colors.gray.800");
+    --tw-prose-pre-code: theme("colors.gray.200");
+    --tw-prose-pre-bg: theme("colors.gray.800");
+  }
+
+  :root {
+    --tw-prose-body: theme("colors.gray.700");
+    --tw-prose-headings: theme("colors.gray.900");
+    --tw-prose-links: theme("colors.primary.600");
+    --tw-prose-code: theme("colors.gray.700");
+    --tw-prose-code-bg: theme("colors.gray.100");
+    --tw-prose-pre-code: theme("colors.gray.200");
+    --tw-prose-pre-bg: theme("colors.gray.800");
+  }
+}
