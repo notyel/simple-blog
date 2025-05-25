@@ -8,4 +8,5 @@ export interface Post {
   slug: string;
   tags: string[];
   toc?: boolean;
+  readingTime?: number;
 }
